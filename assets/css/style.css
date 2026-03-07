@@ -1086,13 +1086,13 @@ a:focus {
       
       .project-img>div>a {
         width: 56px;
-        left: 50%;
+        left: 0%;
       }
-                                                                                                                                                                                                .project-img>div>a:only-of-type {
-                                                                                                                                                                                                  transform: translate(-50%, 0%);
-                                                                                                                                                                                                }
+  .project-img>div>a:only-of-type {
+   transform: translate(200%, 0%);
+    }
                                                                                                 
-                                                                                                                                                                                                .project-img>div>a:first-of-type:not(:only-of-type) {
+.project-img>div>a:first-of-type:not(:only-of-type) {
         transform: translate(-112.5%, 0%);
       }
                         .project-img>div>a:last-of-type:not(:only-of-type) {
