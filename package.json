@@ -1,9 +1,15 @@
 {
   "scripts": {
-    "dev": "npx http-serve"
+    "dev": "npx http-serve",
+    "test": "jest"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
     "ionicons": "^7.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "postcss": "^8.4.0",
+    "postcss-safe-parser": "^6.0.0"
   }
 }
