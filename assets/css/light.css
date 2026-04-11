@@ -11,60 +11,60 @@ SPDX-License-Identifier: MIT
         --night: oklch(29.935% 0.02625 260.063);
         --silver: oklch(47.239% 0.0112 222.419);
         /* Background gradients */
-        --bg-gradient-onyx: linear-gradient(to bottom right,
+        --gradient-bg-primary: linear-gradient(to bottom right,
                         oklch(98% 0.00011 265.192) 3%,
                                 oklch(94% 0.00011 265.192) 97%);
-        --bg-gradient-jet: linear-gradient(to bottom right,
+        --gradient-bg-secondary: linear-gradient(to bottom right,
                         oklch(96% 0.00011 265.192 / 0.6) 0%,
                                 oklch(100% 0.00011 265.192 / 0) 100%),
                                 oklch(97% 0.00011 265.192);
                         
                                 /* Accent gradients (blue-only) */
-                                --bg-gradient-blue-1: linear-gradient(to bottom right,
+                                --gradient-accent-1: linear-gradient(to bottom right,
                                                 oklch(85% 0.08047 265.192) 0%,
                                                 oklch(78% 0.08047 265.192 / 0) 50%);
                         
-                                --bg-gradient-blue-2: linear-gradient(135deg,
+                                --gradient-accent-2: linear-gradient(135deg,
                                                 oklch(82% 0.08047 265.192 / 0.25) 0%,
                                                 oklch(76% 0.08047 265.192 / 0) 60%),
                                         oklch(96% 0.00011 265.192);
                         
                                 /* Border gradients */
-        --border-gradient-onyx: linear-gradient(to bottom right,
+        --gradient-border: linear-gradient(to bottom right,
                         oklch(88% 0.00011 265.192) 0%,
                                 oklch(88% 0.00011 265.192 / 0) 50%);
                         
                                 /* Text gradients */
-                                --text-gradient-blue: linear-gradient(to right,
+                                --gradient-text-accent: linear-gradient(to right,
                         oklch(40% 0.08047 265.192),
                                 oklch(46% 0.08047 265.192));
                         
-                                --text-gradient-neutral: linear-gradient(to right,
+                                --gradient-text-neutral: linear-gradient(to right,
                                                 oklch(32% 0.00011 265.192),
                                                 oklch(40% 0.00011 265.192));
                         
                                 /* Surface colors */
-                                --jet: oklch(95% 0.00004 265.192);
-                                --onyx: oklch(93% 0.00183 265.192);
-                                --eerie-black-1: oklch(91% 0.00378 265.192);
-                                --eerie-black-2: oklch(89% 0.00192 265.192);
-                                --eerie-black-2-alt: oklch(85% 0.00355 265.192);
-                                --smoky-black: oklch(87% 0.00002 265.192);
+                                --color-bg-secondary: oklch(95% 0.00004 265.192);
+                                --color-bg-surface: oklch(93% 0.00183 265.192);
+                                --color-bg-card: oklch(91% 0.00378 265.192);
+                                --color-bg-elevated: oklch(89% 0.00192 265.192);
+                                --color-bg-elevated-alt: oklch(85% 0.00355 265.192);
+                                --color-bg-primary: oklch(87% 0.00002 265.192);
                         
                                 /* Whites */
-        --white-1: oklch(100% 0.00011 265.192);
-        --white-2: oklch(98.5% 0.00011 265.192);
+        --color-text-primary: oklch(100% 0.00011 265.192);
+        --color-text-secondary: oklch(98.5% 0.00011 265.192);
         
                 /* Blues (same chroma & hue, lighter) */
-                --crayola-blue: oklch(52% 0.08047 265.192);
-                --lighter-blue: oklch(60% 0.08047 265.192);
-                --lighter-blue-70: oklch(60% 0.08047 265.192 / 0.7);
-                --whitish-blue-2: oklch(75% 0.08047 265.192);
+                --color-accent-link: oklch(52% 0.08047 265.192);
+                --color-text-link: oklch(60% 0.08047 265.192);
+                --color-text-link-dim: oklch(60% 0.08047 265.192 / 0.7);
+                --color-text-link-hover: oklch(75% 0.08047 265.192);
         
                 /* Grays (neutralized blue axis) */
-                --light-gray: oklch(92% 0.0001 265.192);
-                --light-gray-70: oklch(92% 0.0001 265.192 / 0.7);
-                --subsubtitle-color: oklch(45% 0.00011 265.192);
+                --color-text-muted: oklch(92% 0.0001 265.192);
+                --color-text-muted-dim: oklch(92% 0.0001 265.192 / 0.7);
+                --color-text-subtitle: oklch(45% 0.00011 265.192);
         
                 /* Shadows (cool, blue-neutral) */
                 --shadow-1: -4px 8px 24px oklch(30% 0.00011 265.192 / 0.08);
@@ -79,6 +79,6 @@ SPDX-License-Identifier: MIT
                 --box-shadow-transparent: oklch(100% 0.00011 265.192 / 0.11);
         
                 /* Foreground */
-                --almost-black: oklch(18% 0.00002 265.192);
+                --color-bg-overlay: oklch(18% 0.00002 265.192);
         --half-transparent: oklch(0% 0 0 / 0.5);
 }
