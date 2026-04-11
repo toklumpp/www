@@ -4,12 +4,12 @@ SPDX-License-Identifier: MIT
 */
 :root {
         /* Base reference colors (unchanged identity) */
-        --blue: #3B4A71;
-        --off-white: #F4F4F4;
-        --white: #FFFFFF;
-        --dark: #332E35;
-        --night: #262E3B;
-        --silver: #555D60;
+        --blue: oklch(41.442% 0.06842 267.385);
+        --off-white: oklch(97.015% 0.00011 271.152);
+        --white: oklch(100% 0.00011 271.152);
+        --dark: oklch(30.922% 0.01418 316.288);
+        --night: oklch(29.935% 0.02625 260.063);
+        --silver: oklch(47.239% 0.0112 222.419);
         /* Background gradients */
         --bg-gradient-onyx: linear-gradient(to bottom right,
                         oklch(98% 0.00011 265.192) 3%,
