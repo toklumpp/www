@@ -53,39 +53,22 @@ function detectBrowser() {
 function replaceGeoUrl(match, latitude, longitude, zoom, platform, browser) {
     let url = match;
     let clickable = true;
+    if(!zoom) {
+        zoom = 11;
+    }
     switch (platform) {
         case "iOS":
         case "macOS":
-            // Use the maps: URL scheme for Apple devices
-            url = `maps://?ll=${latitude},${longitude}`;
-            if (zoom) {
-                url += `&z=${zoom}`;
-            }
+            url = `maps://?ll=${latitude},${longitude}&z=${zoom}`;
+            break;
+        case "Android":
+        case "Chrome OS":
+        case "Linux":
+            url = match;
             break;
         case "Windows":
-            switch (browser) {
-                case "Microsoft Edge":
-                    url = `https://www.bing.com/maps?cp=${latitude}~${longitude}`;
-                    if (zoom) {
-                        url += `&lvl=${zoom}`;
-                    }
-                    break;
-                case "Firefox":
-                case "Google Chrome":
-                case "Opera":
-                    url = `https://www.google.com/maps/@${latitude},${longitude}`;
-                    if (zoom) {
-                        url += `,${zoom}z`;
-                    }
-                    break;
-                default:
-                    url = match;
-                    clickable = false;
-            }
-            break;
         default:
-            // Use the geo: URL scheme for Android, ChromeOS, Linux and unknown platforms
-            url = match;
+            url = `https://www.openstreetmap.org/#map=${zoom}/${latitude}/${longitude}`;
             break;
     }
 
