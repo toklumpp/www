@@ -22,7 +22,7 @@ SPDX-License-Identifier: MIT
                         oklch(37.15% 0.00011 271.152 / 0) 50%);
         --gradient-text-accent: linear-gradient(to right,
                         oklch(90.092% 0.00011 265.192),
-                                oklch(83.752% 0.00011 265.192));
+                        oklch(83.752% 0.00011 265.192));
         --gradient-text-link: linear-gradient(to right,
                         oklch(70.744% 0.08047 265.192),
                         oklch(66.883% 0.08047 265.192));
@@ -38,13 +38,42 @@ SPDX-License-Identifier: MIT
         --color-accent-primary: oklch(90.092% 0.00011 265.192);
         --color-accent-secondary: oklch(76.808% 0 265.192);
         --color-accent-link: oklch(73.252% 0.08047 265.192);
-                --color-text-link: oklch(72.571% 0.08047 265.192);
-                --color-text-link-dim: oklch(72.571% 0.08047 265.192 / 0.7);
+        --color-text-link: oklch(72.571% 0.08047 265.192);
+        --color-text-link-dim: oklch(72.571% 0.08047 265.192 / 0.7);
         --color-text-link-hover: var(--color-text-link);
         --color-text-muted: oklch(87.61% 0.0001 265.192);
         --color-text-muted-dim: oklch(87.61% 0.0001 265.192 / 0.7);
         --color-text-subtitle: oklch(60% 0.00011 271.152);
         --color-accent-tertiary: oklch(55.836% 0.08047 355.192);
+        --color-bg-overlay: oklch(15.907% 0.00002 265.192);
+        /* Deprecated variables (to be removed) */
+        --bg-gradient-onyx: var(--gradient-bg-primary);
+        --bg-gradient-jet: var(--gradient-bg-secondary);
+        --bg-gradient-yellow-1: var(--gradient-accent-1);
+        --bg-gradient-yellow-2: var(--gradient-accent-2);
+        --border-gradient-onyx: var(--gradient-border);
+        --text-gradient-yellow: var(--gradient-text-accent);
+        --text-gradient-blue: var(--gradient-text-link);
+        --onyx-transparent: var(--color-bg-overlay-transparent);
+        --jet: var(--color-bg-secondary);
+        --onyx: var(--color-bg-surface);
+        --eerie-black-1: var(--color-bg-card);
+        --eerie-black-2: var(--color-bg-elevated);
+        --eerie-black-2-alt: var(--color-bg-elevated-alt);
+        --smoky-black: var(--color-bg-primary);
+        --white-1: var(--color-text-primary);
+        --white-2: var(--color-text-secondary);
+        --orange-yellow-crayola: var(--color-accent-primary);
+        --vegas-gold: var(--color-accent-secondary);
+        --crayola-blue: var(--color-accent-link);
+        --lighter-blue: var(--color-text-link);
+        --lighter-blue-70: var(--color-text-link-dim);
+        --whitish-blue-2: var(--color-text-link-hover);
+        --light-gray: var(--color-text-muted);
+        --light-gray-70: var(--color-text-muted-dim);
+        --subsubtitle-color: var(--color-text-subtitle);
+        --bittersweet-shimmer: var(--color-accent-tertiary);
+        /* End of deprecated variables*/
         --shadow-1: -4px 8px 24px oklch(0% 0 0 / 0.25);
                 --shadow-2: 0 16px 30px oklch(0% 0 0 / 0.25);
                 --shadow-3: 0 16px 40px oklch(0% 0 0 / 0.25);
@@ -56,6 +85,8 @@ SPDX-License-Identifier: MIT
                 --transparent: oklch(100% 0.00011 271.152 / 0.1);
                 --almost-transparent: oklch(100% 0.00011 271.152 / 0.15);
                 --box-shadow-transparent: oklch(100% 0.00011 271.152 / 0.11);
-        --color-bg-overlay: oklch(15.907% 0.00002 265.192);
+                /* Deprecated variables (to be removed) */
+        --almost-black: var(--color-bg-overlay);
+        /* End of deprecated variables */
         --half-transparent: oklch(0% 0 0 / 0.5);
 }
