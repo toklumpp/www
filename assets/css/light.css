@@ -5,8 +5,8 @@ SPDX-License-Identifier: MIT
 :root {
         /* Base reference colors (unchanged identity) */
         --blue-dark: oklch(35.8% 0.0577 263.999);
-        --blue-70: oklch(41.442% 0.06842 267.385 / 0.7);
         --blue-light: oklch(46.081% 0.07981 264.794);
+        --blue-light-70: oklch(46.081% 0.07981 264.794 / 0.7);
         --off-white-light: oklch(97.315% 0.00011 271.152);
         --off-white-dark: oklch(92.763% 0.00536 95.188);
         --white: oklch(100% 0.00011 271.152);
@@ -40,8 +40,8 @@ SPDX-License-Identifier: MIT
                         
                                 /* Text gradients */
                                 --gradient-text-accent: linear-gradient(to right,
-                        oklch(40% 0.08047 265.192),
-                                oklch(46% 0.08047 265.192));
+                        var(--blue-dark),
+                                var(--blue-light));
                         
                                 --gradient-text-neutral: linear-gradient(to right,
                                                 oklch(32% 0.00011 265.192),
@@ -59,10 +59,10 @@ SPDX-License-Identifier: MIT
         --color-text-secondary: var(--night);
         
                 /* Blues (same chroma & hue, lighter) */
-                --color-accent-link: var(--blue);
-                --color-text-link: var(--blue);
-                --color-text-link-dim: var(--blue-70);
-                --color-text-link-hover: var(--blue);
+                --color-accent-link: var(--blue-light);
+                --color-text-link: var(--blue-light);
+                --color-text-link-dim: var(--blue-light-70);
+                --color-text-link-hover: var(--blue-light-70);
         
                 /* Grays (neutralized blue axis) */
                 --color-text-muted: var(--silver);
