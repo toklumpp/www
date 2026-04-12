@@ -16,8 +16,8 @@ SPDX-License-Identifier: MIT
         --silver-70: oklch(47.239% 0.0112 222.419 / 0.7);
         /* Background gradients */
         --gradient-bg-primary: linear-gradient(to bottom right,
-                        oklch(98% 0.00011 265.192) 3%,
-                                oklch(94% 0.00011 265.192) 97%);
+                        var(--off-white-light) 3%,
+                                var(--off-white-dark) 97%);
         --gradient-bg-secondary: linear-gradient(to bottom right,
                         oklch(96% 0.00011 265.192 / 0.6) 0%,
                                 oklch(100% 0.00011 265.192 / 0) 100%),
