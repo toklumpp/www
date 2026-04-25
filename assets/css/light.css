@@ -59,6 +59,7 @@ SPDX-License-Identifier: MIT
         --color-text-secondary: var(--night);
         
                 /* Blues (same chroma & hue, lighter) */
+                --color-accent-primary: var(--night);
                 --color-accent-link: var(--blue-light);
                 --color-text-link: var(--blue-light);
                 --color-text-link-dim: var(--blue-light-70);
