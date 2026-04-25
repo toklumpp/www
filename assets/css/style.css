@@ -410,7 +410,11 @@ main {
 }
 
 .contact-info a {
-  color: var(--color-text-link-hover);
+  color: var(--color-text-link-dim);
+}
+
+.contact-info a:hover {
+  color: var(--color-text-link);
 }
 
 .contact-info a.no-link {
@@ -434,16 +438,16 @@ main {
   font-size: 18px;
 }
 
-.social-item a:hover {
+.social-item a:hover, .social-item a:focus {
   color: var(--color-text-link);
 }
 a {
-  color: var(--color-text-link);
+  color: var(--color-text-link-dim);
 }
 
 a:hover,
 a:focus {
-  color: var(--color-text-link-dim);
+  color: var(--color-text-link);
 }
 
 /*-----------------------------------*\
@@ -473,7 +477,7 @@ a:focus {
 }
 
 .navbar a {
-  color: var(--color-text-link);
+  color: var(--color-text-link-dim);
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
@@ -481,7 +485,7 @@ a:focus {
 
 .navbar a:hover,
 .navbar a:focus {
-  color: var(--color-text-link-dim);
+  color: var(--color-text-link);
 }
 .navbar a.active {
   color: var(--color-accent-primary);
