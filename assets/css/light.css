@@ -61,7 +61,7 @@ SPDX-License-Identifier: MIT
                 /* Grays (neutralized blue axis) */
                 --color-text-muted: oklch(29.935% 0.02625 260.063 / 0.6);
                 --color-text-muted-dim: oklch(29.935% 0.02625 260.063 / 0.4);
-                --color-text-subtitle: oklch(45% 0.00011 265.192);
+                --color-text-subtitle: oklch(29.935% 0.02625 260.063 / 0.7);
         
                 --shadow-1: -4px 8px 24px oklch(30.922% 0.01418 316.288 / 0.08);
                 --shadow-2: 0 16px 30px oklch(30.922% 0.01418 316.288 / 0.1);
