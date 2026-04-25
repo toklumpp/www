@@ -48,12 +48,12 @@ SPDX-License-Identifier: MIT
                                                 oklch(40% 0.00011 265.192));
                         
                                 /* Surface colors */
-        --color-bg-secondary: var(--off-white);
-        --color-bg-surface: var(--off-white);
-        --color-bg-card: var(--off-white);
-        --color-bg-elevated: var(--off-white);
-        --color-bg-elevated-alt: var(--off-white);
-        --color-bg-primary: var(--off-white);
+        --color-bg-secondary: var(--off-white-light);
+        --color-bg-surface: var(--off-white-light);
+        --color-bg-card: var(--off-white-light);
+        --color-bg-elevated: var(--off-white-light);
+        --color-bg-elevated-alt: var(--off-white-light);
+        --color-bg-primary: var(--off-white-light);
                         
         --color-text-primary: var(--night);
         --color-text-secondary: var(--night);
