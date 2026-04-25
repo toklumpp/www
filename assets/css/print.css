@@ -1,0 +1,133 @@
+/*
+Copyright (c) 2026 Tobias Klumpp
+SPDX-License-Identifier: MIT
+*/
+
+:root {
+  /* Base reference colors */
+  --blue-dark: oklch(35.8% 0.0577 263.999);
+  --blue-light: oklch(46.081% 0.07981 264.794);
+  --blue-light-70: oklch(46.081% 0.07981 264.794 / 0.7);
+  --white: oklch(100% 0.00011 271.152);
+  --night: oklch(29.935% 0.02625 260.063);
+
+  /* Background - pure white for printing */
+  --gradient-bg-primary: var(--white);
+  --gradient-bg-secondary: var(--white);
+  --gradient-accent-1: var(--white);
+  --gradient-accent-2: var(--white);
+  --gradient-border: var(--night);
+
+  /* Text gradients */
+  --gradient-text-accent: linear-gradient(to right,
+                  var(--blue-dark),
+                          var(--blue-light));
+
+  /* Surface colors - all white */
+  --color-bg-secondary: var(--white);
+  --color-bg-surface: var(--white);
+  --color-bg-card: var(--white);
+  --color-bg-elevated: var(--white);
+  --color-bg-elevated-alt: var(--white);
+  --color-bg-primary: var(--white);
+
+  /* Text colors */
+  --color-text-primary: var(--night);
+  --color-text-secondary: var(--night);
+
+  /* Blues (same chroma & hue, lighter) */
+  --color-accent-primary: var(--night);
+  --color-accent-link: var(--blue-dark);
+  --color-text-link: var(--blue-dark);
+  --color-text-link-dim: var(--blue-dark);
+  --color-text-link-hover: var(--blue-dark);
+
+  /* Grays */
+  --color-text-muted: oklch(29.935% 0.02625 260.063 / 0.7);
+  --color-text-muted-dim: oklch(29.935% 0.02625 260.063 / 0.5);
+  --color-text-subtitle: oklch(29.935% 0.02625 260.063 / 0.6);
+
+  /* No shadows for print */
+  --shadow-1: none;
+  --shadow-2: none;
+  --shadow-3: none;
+  --shadow-4: none;
+  --shadow-5: none;
+
+  /* Transparency - removed for print */
+  --transparent: var(--white);
+  --almost-transparent: var(--white);
+  --box-shadow-transparent: transparent;
+
+  /* Overlays */
+  --color-bg-overlay: var(--night);
+  --half-transparent: var(--night);
+}
+
+/* Remove all shadows */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Hide unnecessary elements */
+nav,
+footer,
+.sidebar,
+.navigation,
+.menu,
+[role="navigation"] {
+  display: none;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  page-break-inside: avoid;
+}
+
+/* Optimize tables */
+table {
+  border-collapse: collapse;
+}
+
+tr,
+td,
+th {
+  page-break-inside: avoid;
+}
+
+/* Avoid page breaks in important content */
+article,
+section,
+.card,
+.container {
+  page-break-inside: avoid;
+}
+
+/* Links - show URL in print */
+a[href]:after {
+  content: "";
+}
+
+/* Page margins and sizing */
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Ensure text is readable */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
+p {
+  page-break-inside: avoid;
+}
