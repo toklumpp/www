@@ -41,7 +41,7 @@ SPDX-License-Identifier: MIT
                                 var(--blue-light));
                         
                                 /* Surface colors */
-        --color-bg-secondary: var(--off-white-light);
+        --color-bg-secondary: oklch(90% 0.02625 260.063);
         --color-bg-surface: var(--off-white-light);
         --color-bg-card: var(--off-white-light);
         --color-bg-elevated: var(--off-white-light);
@@ -77,4 +77,9 @@ SPDX-License-Identifier: MIT
                 /* Foreground */
                 --color-bg-overlay: oklch(29.935% 0.02625 260.063 / 0.8);
         --half-transparent: oklch(29.935% 0.02625 260.063 / 0.5);
+}
+
+/* Light mode overrides */
+.project-item figure:hover::before {
+  background: oklch(100% 0 0 / 0.5);
 }
