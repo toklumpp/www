@@ -63,12 +63,14 @@ function replaceGeoUrl(match, latitude, longitude, zoom, platform, browser) {
             break;
         case "Android":
         case "Chrome OS":
+        case "Chromium OS":
         case "Linux":
             url = match;
             break;
         case "Windows":
         default:
-            url = `https://www.openstreetmap.org/#map=${zoom}/${latitude}/${longitude}`;
+            url = "";
+            clickable = false;
             break;
     }
 
@@ -87,14 +89,15 @@ function geoUrls() {
     links.forEach(link => {
         const match = link.href.match(geoUrlPattern);
         if (match) {
-            let result = replaceGeoUrl(link.href, match[1], match[2], match[5], platform, browser);
-            link.href = result.url;
-            if (!result.clickable) {
+            let result = replaceGeoUrl(link.href, match[1], match[2], match[5], platform, browser);       
+            if (result.clickable) {
+                if (link.href.match(/http/i)) {
+                    link.rel += " noopener";
+                    link.target = "_blank";
+                }
+                link.href = result.url;
+            } else {
                 link.className += " no-link";
-            }
-            if (link.href.match(/http/i)) {
-                link.rel += " noopener";
-                link.target = "_blank";
             }
         }
     });
