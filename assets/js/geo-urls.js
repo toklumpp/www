@@ -61,16 +61,16 @@ function replaceGeoUrl(match, latitude, longitude, zoom, platform, browser) {
         case "macOS":
             url = `maps://?ll=${latitude},${longitude}&z=${zoom}`;
             break;
+        case "Windows":
+            url = "";
+            clickable = false;
+            break;
         case "Android":
         case "Chrome OS":
         case "Chromium OS":
         case "Linux":
-            url = match;
-            break;
-        case "Windows":
         default:
-            url = "";
-            clickable = false;
+            url = match;
             break;
     }
 
