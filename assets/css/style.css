@@ -12,6 +12,7 @@ SPDX-License-Identifier: MIT
   --off-white-dark: oklch(92.763% 0.00536 95.188);
   --white: oklch(100% 0.00011 271.152);
   --night: oklch(29.935% 0.02625 260.063);
+  --night-70: oklch(29.935% 0.02625 260.063 / 0.7);
   /* Background gradients */
   --gradient-bg-primary: linear-gradient(to bottom right,
       var(--off-white-light) 3%,
@@ -50,7 +51,7 @@ SPDX-License-Identifier: MIT
   --color-bg-primary: var(--off-white-light);
 
   --color-text-primary: var(--night);
-  --color-text-secondary: var(--night);
+  --color-text-secondary-dim: var(--night-70);
 
   /* Blues (same chroma & hue, lighter) */
   --color-accent-primary: var(--night);
@@ -561,7 +562,7 @@ main {
 }
 
 .contact-info a.no-link {
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary-dim);
 }
 .contact-info :is(time, address) {
   color: var(--color-text-secondary);
