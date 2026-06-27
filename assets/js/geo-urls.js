@@ -97,7 +97,17 @@ function geoUrls() {
                 }
                 link.href = result.url;
             } else {
-                link.className += " no-link";
+                const span = document.createElement('span');
+                for (const attr of link.attributes) {
+                    if (attr.name !== 'href') {
+                        span.setAttribute(attr.name, attr.value);
+                    }
+                }
+                span.classList.add('no-link');
+                while (link.firstChild) {
+                    span.appendChild(link.firstChild);
+                }
+                link.parentNode.replaceChild(span, link);
             }
         }
     });

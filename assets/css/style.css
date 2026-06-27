@@ -546,7 +546,7 @@ main {
   margin-bottom: 2px;
 }
 
-.contact-info :is(a, time, address) {
+.contact-info>:is(a, span, time, address) {
   font-size: var(--fs-7);
 }
 
@@ -562,7 +562,7 @@ main {
   color: var(--color-text-link);
 }
 
-.contact-info a.no-link {
+.contact-info>:is(a, span).no-link {
   color: var(--color-text-secondary-dim);
 }
 .contact-info :is(time, address) {
@@ -2259,13 +2259,13 @@ textarea.form-input::-webkit-resizer {
     grid-template-columns: 1fr;
   }
 
-  .contact-info :is(a) {
+  .contact-info>:is(a, span) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .contact-info :is(a, time) {
+  .contact-info>:is(a, span, time) {
     --fs-7: 14px;
     font-weight: var(--fw-300);
   }
