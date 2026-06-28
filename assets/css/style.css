@@ -562,7 +562,7 @@ main {
   color: var(--color-text-link);
 }
 
-.contact-info>:is(a, span).no-link {
+.contact-info>:is(a.no-link, span) {
   color: var(--color-text-secondary-dim);
 }
 .contact-info :is(time, address) {
