@@ -120,6 +120,7 @@ SPDX-License-Identifier: MIT
     --color-bg-primary: oklch(18.22% 0.00002 265.192);
     --color-text-primary: oklch(100% 0.00011 265.192);
     --color-text-secondary: oklch(98.511% 0.00011 265.192);
+    --color-text-secondary-dim: oklch(98.511% 0.00011 265.192 / 0.7);
     --color-accent-primary: oklch(90.092% 0.00011 265.192);
     --color-accent-secondary: oklch(76.808% 0 265.192);
     --color-accent-link: oklch(73.252% 0.08047 265.192);
