@@ -87,6 +87,95 @@ SPDX-License-Identifier: MIT
   background: oklch(100% 0 0 / 0.5);
 }
 
+/*@media print {*/
+  :root {
+  /* Base reference colors (unchanged identity) */
+    --blue-dark: oklch(35.8% 0.0577 263.999);
+    --blue-light: oklch(46.081% 0.07981 264.794);
+    --white: oklch(100% 0.00011 271.152);
+    --blue-light-70: oklch(46.081% 0.07981 264.794 / 0.7);
+    --off-white-light: var(--white);
+    --off-white-dark: var(--white);
+    --night: oklch(29.935% 0.02625 260.063);
+    --night-70: oklch(29.935% 0.02625 260.063 / 0.7);
+    /* Background gradients */
+    --gradient-bg-primary: linear-gradient(to bottom right,
+      var(--white) 3%,
+        var(--white) 97%);
+    --gradient-bg-secondary: linear-gradient(to bottom right,
+        var(--white) 0%,
+        var(--white) 100%),
+      var(--off-white-light);
+  
+    /* Accent gradients (blue-only) */
+    --gradient-accent-1: linear-gradient(to bottom right,
+        oklch(85% 0.08047 265.192) 0%,
+        var(--white) 50%);
+  
+    --gradient-accent-2: linear-gradient(135deg,
+        oklch(82% 0.08047 265.192 / 0.25) 0%,
+        var(--white) 60%),
+      var(--off-white-light);
+  
+    /* Border gradients */
+    --gradient-border: linear-gradient(to bottom right,
+        var(--off-white-dark) 0%,
+        var(--white) 50%);
+  
+    /* Text gradients */
+    --gradient-text-accent: linear-gradient(to right,
+        var(--blue-dark),
+        var(--blue-light));
+  
+    /* Surface colors */
+    --color-bg-secondary: var(--white);
+    --color-bg-surface: var(--off-white-light);
+    --color-bg-card: var(--off-white-light);
+    --color-bg-elevated: var(--off-white-light);
+    --color-bg-elevated-alt: var(--off-white-light);
+    --color-bg-primary: var(--off-white-light);
+  
+    --color-text-primary: var(--night);
+    --color-text-secondary: var(--night);
+    --color-text-secondary-dim: var(--night-70);
+  
+    /* Blues (same chroma & hue, lighter) */
+    --color-accent-primary: var(--night);
+    --color-accent-link: var(--blue-light);
+    --color-text-link: var(--blue-light);
+    --color-text-link-dim: var(--blue-light-70);
+    --color-text-link-hover: var(--blue-light-70);
+  
+    /* Grays (neutralized blue axis) */
+    --color-text-muted: oklch(29.935% 0.02625 260.063 / 0.6);
+    --color-text-muted-dim: oklch(29.935% 0.02625 260.063 / 0.4);
+    --color-text-subtitle: oklch(29.935% 0.02625 260.063 / 0.7);
+  
+    --shadow-1: -4px 8px 24px oklch(29.935% 0.02625 260.063 / 0.08);
+    --shadow-2: 0 16px 30px oklch(29.935% 0.02625 260.063 / 0.1);
+    --shadow-3: 0 16px 40px oklch(29.935% 0.02625 260.063 / 0.12);
+    --shadow-4: 0 25px 50px oklch(29.935% 0.02625 260.063 / 0.08);
+    --shadow-5: 0 24px 80px oklch(29.935% 0.02625 260.063 / 0.12);
+  
+    /* Transparency */
+    --transparent: oklch(100% 0.00011 271.152 / 0.1);
+    --almost-transparent: oklch(100% 0.00011 271.152 / 0.15);
+    --box-shadow-transparent: oklch(100% 0.00011 271.152 / 0.11);
+  
+    /* Foreground */
+    --color-bg-overlay: oklch(29.935% 0.02625 260.063 / 0.8);
+    --half-transparent: oklch(29.935% 0.02625 260.063 / 0.5);
+  }
+  
+  /* Light mode overrides */
+  .project-item figure:hover::before {
+    background: oklch(100% 0 0 / 0.5);
+  }
+  nav {
+    display: none;
+  }
+/*}*/
+
 @media (prefers-color-scheme: dark) {
   :root {
     --white: oklch(100% 0.00011 265.192);
