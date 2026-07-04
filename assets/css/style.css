@@ -43,7 +43,7 @@ SPDX-License-Identifier: MIT
       var(--blue-light));
 
   /* Surface colors */
-  --color-bg-secondary: oklch(90% 0.02625 260.063);
+  --color-bg-secondary: var(--off-white-dark);
   --color-bg-surface: var(--off-white-light);
   --color-bg-card: var(--off-white-light);
   --color-bg-elevated: var(--off-white-light);
