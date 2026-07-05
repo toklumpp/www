@@ -447,7 +447,7 @@ main {
   border-radius: 20px;
 }
 
-.portrait-image {
+.avatar-box>img {
   border-radius: 20px;
 }
 
@@ -658,7 +658,7 @@ a:focus {
   line-height: 1.6;
 }
 
-.about-title {
+.about-text>h3 {
   margin-bottom: 20px;
 }
 
