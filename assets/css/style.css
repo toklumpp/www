@@ -1208,7 +1208,6 @@ a:focus {
 
 .project-img .project-item-icon-box {
   background: var(--color-bg-secondary);
-  color: var(--color-accent-link);
   font-size: 20px;
   height: 56px;
   width: 56px;
