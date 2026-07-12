@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Tobias Klumpp (https://www.toklumpp.net/)
+Copyright (c) 2025-2026 Tobias Klumpp (https://www.toklumpp.net/)
 SPDX-License-Identifier: MIT
 */
 'use strict';
@@ -28,37 +28,59 @@ function detectPlatform() {
     }
 }
 
+function detectBrowser() {
+    const userAgent = navigator.userAgent;
+    if (userAgent.match(/Seamonkey/i)) {
+        return "Seamonkey";
+    } else if (userAgent.match(/Firefox/i)) {
+        return "Firefox";
+    } else if (userAgent.match(/Edg/i)) {
+        return "Microsoft Edge";
+    } else if (userAgent.match(/Chromium/i)) {
+        return "Chromium";
+    } else if (userAgent.match(/Chrome/i)) {
+        return "Google Chrome";
+    } else if (userAgent.match(/Safari/i)) {
+        return "Safari";
+    } else if (userAgent.match(/Opera/i) || userAgent.match(/OPR/i)) {
+        return "Opera";
+    } else {
+        return "Unknown";
+    }
+}
+
 // Function to replace geo: URLs with platform-specific maps app URLs
-function replaceGeoUrl(match, latitude, longitude, zoom, platform) {
+function replaceGeoUrl(match, latitude, longitude, zoom, platform, browser) {
     let url = match;
+    let clickable = true;
+    if(!zoom) {
+        zoom = 11;
+    }
     switch (platform) {
         case "iOS":
         case "macOS":
-            // Use the maps: URL scheme for Apple devices
-            url = `maps://?ll=${latitude},${longitude}`;
-            if (zoom) {
-                url += `&z=${zoom}`;
-            }
+            url = `maps://?ll=${latitude},${longitude}&z=${zoom}`;
             break;
         case "Windows":
-            // Use the bingmaps: URL scheme for Windows Maps app
-            url = `bingmaps:?cp=${latitude}~${longitude}`;
-            if (zoom) {
-                url += `&lvl=${zoom}`;
-            }
+            url = "";
+            clickable = false;
             break;
+        case "Android":
+        case "Chrome OS":
+        case "Chromium OS":
+        case "Linux":
         default:
-            // Use the geo: URL scheme for Android, ChromeOS, Linux and unknown platforms
             url = match;
             break;
     }
 
-    return url;
+    return { "url": url, "clickable": clickable };
 }
 
-function makeGeoURLsCrossplatform() {
+function geoUrls() {
     // Detect the platform
     const platform = detectPlatform();
+    const browser = detectBrowser();
 
     // Get all links with geo: URLs
     const links = document.querySelectorAll('a[href^="geo:"]');
@@ -67,8 +89,28 @@ function makeGeoURLsCrossplatform() {
     links.forEach(link => {
         const match = link.href.match(geoUrlPattern);
         if (match) {
-            link.href = replaceGeoUrl(link.href, match[1], match[2], match[5], platform);
+            let result = replaceGeoUrl(link.href, match[1], match[2], match[5], platform, browser);       
+            if (result.clickable) {
+                if (link.href.match(/http/i)) {
+                    link.rel += " noopener";
+                    link.target = "_blank";
+                }
+                link.href = result.url;
+            } else {
+                const span = document.createElement('span');
+                for (const attr of link.attributes) {
+                    if (attr.name !== 'href') {
+                        span.setAttribute(attr.name, attr.value);
+                    }
+                }
+                span.classList.add('no-link');
+                while (link.firstChild) {
+                    span.appendChild(link.firstChild);
+                }
+                link.parentNode.replaceChild(span, link);
+            }
         }
     });
 }
-document.addEventListener('DOMContentLoaded', makeGeoURLsCrossplatform);
+
+document.addEventListener('DOMContentLoaded', geoUrls);
