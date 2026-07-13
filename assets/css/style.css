@@ -622,7 +622,7 @@ a:focus {
   padding: 0 10px;
 }
 
-.navbar a {
+.navbar a, .navbar-link {
   color: var(--color-text-link-dim);
   font-size: var(--fs-8);
   padding: 20px 7px;
@@ -630,10 +630,12 @@ a:focus {
 }
 
 .navbar a:hover,
-.navbar a:focus {
+.navbar a:focus,
+.navbar-link:hover,
+.navbar-link:focus {
   color: var(--color-text-link);
 }
-.navbar a.active {
+.navbar a.active, .navbar-link.active {
   color: var(--color-accent-primary);
   pointer-events: none;
   cursor: default;
