@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2024-2025 Tobias Klumpp (https://www.toklumpp.net/)
+Copyright (c) 2024-2026 Tobias Klumpp (https://www.toklumpp.net/)
 Copyright (c) 2022 codewithsadee
 SPDX-License-Identifier: MIT
 */
@@ -157,3 +157,27 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll('form[action^="mailto:"]');
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      // Stop the default HTML form submission (which causes the '+' bug)
+      event.preventDefault();
+
+      // Dynamically grab the action (email) and inputs
+      const action = form.getAttribute("action"); // e.g., "mailto:your-email@example.com"
+      const subjectVal = form.querySelector('[name="subject"]').value;
+      const messageVal = form.querySelector('[name="body"]').value;
+
+      // Properly encode to turn spaces into %20 instead of +
+      const encodedSubject = encodeURIComponent(subjectVal);
+      const encodedBody = encodeURIComponent(messageVal);
+
+      // Redirect cleanly
+      window.location.href = `${action}?subject=${encodedSubject}&body=${encodedBody}`;
+    });
+  });
+});
