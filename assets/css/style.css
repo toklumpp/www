@@ -2016,7 +2016,7 @@ textarea.form-input::-webkit-resizer {
    */
 
   .input-wrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .form-btn {
