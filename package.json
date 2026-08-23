@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "npx http-serve"
+    "dev": "npx http-serve",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
