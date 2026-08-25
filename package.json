@@ -1,4 +1,5 @@
 {
+  "name": "@toklumpp/www",
   "scripts": {
     "dev": "npx http-serve",
     "prepare": "husky"
