@@ -107,6 +107,8 @@ node_modules/strip-ansi
 node_modules/tinyexec
 node_modules/type-check
 node_modules/@types
+node_modules/@typescript
+node_modules/typescript
 node_modules/uri-js
 node_modules/which
 node_modules/word-wrap

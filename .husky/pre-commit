@@ -1,1 +1,2 @@
+npx tsc --project tsconfig.json
 npx lint-staged
