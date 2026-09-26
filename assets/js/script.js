@@ -3,6 +3,7 @@ Copyright (c) 2024-2026 Tobias Klumpp (https://www.toklumpp.net/)
 Copyright (c) 2022 codewithsadee
 SPDX-License-Identifier: MIT
 */
+// @ts-check
 "use strict";
 
 /**
@@ -14,67 +15,28 @@ const elementToggleFunc = function (elem) {
   elem.classList.toggle("active");
 };
 
-/** @type {HTMLElement} */
 // sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-/** @type {HTMLElement} */
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+const sidebar = /** @type {HTMLElement} */ (
+  document.querySelector("[data-sidebar]")
+);
+const sidebarBtn = /** @type {HTMLElement} */ (
+  document.querySelector("[data-sidebar-btn]")
+);
 
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () {
   elementToggleFunc(sidebar);
 });
 
-/** @type {NodeListOf<HTMLElement>} */
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-/** @type {HTMLElement} */
-const modalContainer = document.querySelector("[data-modal-container]");
-/** @type {HTMLElement} */
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-/** @type {HTMLImageElement} */
-const modalImg = document.querySelector("[data-modal-img]");
-/** @type {HTMLElement} */
-const modalTitle = document.querySelector("[data-modal-title]");
-/** @type {HTMLElement} */
-const modalText = document.querySelector("[data-modal-text]");
-
-/**
- * Opens/closes the testimonials modal and its overlay.
- */
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-};
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-  testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector(
-      "[data-testimonials-title]",
-    ).innerHTML;
-    modalText.innerHTML = this.querySelector(
-      "[data-testimonials-text]",
-    ).innerHTML;
-
-    testimonialsModalFunc();
-  });
-}
-
-// add click event to modal close button
-
-/** @type {HTMLElement} */
 // custom select variables
-const select = document.querySelector("[data-select]");
+const select = /** @type {HTMLElement} */ (
+  document.querySelector("[data-select]")
+);
 /** @type {NodeListOf<HTMLElement>} */
 const selectItems = document.querySelectorAll("[data-select-item]");
-/** @type {HTMLElement} */
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = /** @type {HTMLElement} */ (
+  document.querySelector("[data-selecct-value]")
+);
 /** @type {NodeListOf<HTMLElement>} */
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
@@ -125,12 +87,14 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 // contact form variables
-/** @type {HTMLFormElement} */
-const form = document.querySelector("[data-form]");
+const form = /** @type {HTMLFormElement} */ (
+  document.querySelector("[data-form]")
+);
 /** @type {NodeListOf<HTMLElement>} */
 const formInputs = document.querySelectorAll("[data-form-input]");
-/** @type {HTMLElement} */
-const formBtn = document.querySelector("[data-form-btn]");
+const formBtn = /** @type {HTMLElement} */ (
+  document.querySelector("[data-form-btn]")
+);
 
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
@@ -178,10 +142,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Dynamically grab the action (email) and inputs
       const action = form.getAttribute("action"); // e.g., "mailto:your-email@example.com"
-      /** @type {string} */
-      const subjectVal = form.querySelector('[name="subject"]').value;
-      /** @type {string} */
-      const messageVal = form.querySelector('[name="body"]').value;
+      const subjectVal = /** @type {HTMLInputElement} */ (
+        form.querySelector('[name="subject"]')
+      ).value;
+      const messageVal = /** @type {HTMLInputElement} */ (
+        form.querySelector('[name="body"]')
+      ).value;
 
       // Properly encode to turn spaces into %20 instead of +
       const encodedSubject = encodeURIComponent(subjectVal);
