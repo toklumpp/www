@@ -60,6 +60,7 @@ node_modules/flat-cache
 node_modules/flatted
 node_modules/get-east-asian-width
 node_modules/glob-parent
+node_modules/globals
 node_modules/@humanfs
 node_modules/@humanwhocodes
 node_modules/husky
