@@ -2,6 +2,7 @@
 Copyright (c) 2025-2026 Tobias Klumpp (https://www.toklumpp.net/)
 SPDX-License-Identifier: MIT
 */
+// @ts-check
 "use strict";
 // Regular expression pattern to match geo: URLs
 /** @type {RegExp} */
@@ -109,7 +110,7 @@ function geoUrls() {
         while (link.firstChild) {
           span.appendChild(link.firstChild);
         }
-        link.parentNode.replaceChild(span, link);
+        link.parentNode?.replaceChild(span, link);
       }
     }
   });
