@@ -101,95 +101,6 @@ SPDX-License-Identifier: MIT
   background: oklch(100% 0 0 / 0.5);
 }
 
-/*@media print {*/
-  :root {
-  /* Base reference colors (unchanged identity) */
-    --blue-dark: oklch(35.8% 0.0577 263.999);
-    --blue-light: oklch(46.081% 0.07981 264.794);
-    --white: oklch(100% 0.00011 271.152);
-    --blue-light-70: oklch(46.081% 0.07981 264.794 / 0.7);
-    --off-white-light: var(--white);
-    --off-white-dark: var(--white);
-    --night: oklch(29.935% 0.02625 260.063);
-    --night-70: oklch(29.935% 0.02625 260.063 / 0.7);
-    /* Background gradients */
-    --gradient-bg-primary: linear-gradient(to bottom right,
-      var(--white) 3%,
-        var(--white) 97%);
-    --gradient-bg-secondary: linear-gradient(to bottom right,
-        var(--white) 0%,
-        var(--white) 100%),
-      var(--off-white-light);
-  
-    /* Accent gradients (blue-only) */
-    --gradient-accent-1: linear-gradient(to bottom right,
-        oklch(85% 0.08047 265.192) 0%,
-        var(--white) 50%);
-  
-    --gradient-accent-2: linear-gradient(135deg,
-        oklch(82% 0.08047 265.192 / 0.25) 0%,
-        var(--white) 60%),
-      var(--off-white-light);
-  
-    /* Border gradients */
-    --gradient-border: linear-gradient(to bottom right,
-        var(--off-white-dark) 0%,
-        var(--white) 50%);
-  
-    /* Text gradients */
-    --gradient-text-accent: linear-gradient(to right,
-        var(--blue-dark),
-        var(--blue-light));
-  
-    /* Surface colors */
-    --color-bg-secondary: var(--white);
-    --color-bg-surface: var(--off-white-light);
-    --color-bg-card: var(--off-white-light);
-    --color-bg-elevated: var(--off-white-light);
-    --color-bg-elevated-alt: var(--off-white-light);
-    --color-bg-primary: var(--off-white-light);
-  
-    --color-text-primary: var(--night);
-    --color-text-secondary: var(--night);
-    --color-text-secondary-dim: var(--night-70);
-  
-    /* Blues (same chroma & hue, lighter) */
-    --color-accent-primary: var(--night);
-    --color-accent-link: var(--blue-light);
-    --color-text-link: var(--blue-light);
-    --color-text-link-dim: var(--blue-light-70);
-    --color-text-link-hover: var(--blue-light-70);
-  
-    /* Grays (neutralized blue axis) */
-    --color-text-muted: oklch(29.935% 0.02625 260.063 / 0.6);
-    --color-text-muted-dim: oklch(29.935% 0.02625 260.063 / 0.4);
-    --color-text-subtitle: oklch(29.935% 0.02625 260.063 / 0.7);
-  
-    --shadow-1: -4px 8px 24px oklch(29.935% 0.02625 260.063 / 0.08);
-    --shadow-2: 0 16px 30px oklch(29.935% 0.02625 260.063 / 0.1);
-    --shadow-3: 0 16px 40px oklch(29.935% 0.02625 260.063 / 0.12);
-    --shadow-4: 0 25px 50px oklch(29.935% 0.02625 260.063 / 0.08);
-    --shadow-5: 0 24px 80px oklch(29.935% 0.02625 260.063 / 0.12);
-  
-    /* Transparency */
-    --transparent: oklch(100% 0.00011 271.152 / 0.1);
-    --almost-transparent: oklch(100% 0.00011 271.152 / 0.15);
-    --box-shadow-transparent: oklch(100% 0.00011 271.152 / 0.11);
-  
-    /* Foreground */
-    --color-bg-overlay: oklch(29.935% 0.02625 260.063 / 0.8);
-    --half-transparent: oklch(29.935% 0.02625 260.063 / 0.5);
-  }
-  
-  /* Light mode overrides */
-  .project-item figure:hover::before {
-    background: oklch(100% 0 0 / 0.5);
-  }
-  nav {
-    display: none;
-  }
-/*}*/
-
 @media (prefers-color-scheme: dark) {
   :root {
     --white: oklch(100% 0.00011 265.192);
@@ -2337,4 +2248,278 @@ h2 a {
 }
 p a {
   display: inline;
+}
+
+/*-----------------------------------*\
+  #PRINT
+\*-----------------------------------*/
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  /**
+   * Force the light theme on a pure white background,
+   * regardless of prefers-color-scheme.
+   */
+  :root {
+    --white: oklch(100% 0 0);
+    --off-white-light: var(--white);
+    --off-white-dark: var(--white);
+    --night: oklch(29.935% 0.02625 260.063);
+    --night-70: oklch(29.935% 0.02625 260.063 / 0.7);
+    --blue-dark: oklch(35.8% 0.0577 263.999);
+    --blue-light: oklch(46.081% 0.07981 264.794);
+    --blue-light-70: oklch(46.081% 0.07981 264.794 / 0.7);
+
+    --gradient-bg-primary: var(--white);
+    --gradient-bg-secondary: var(--white);
+    --gradient-accent-1: var(--white);
+    --gradient-accent-2: var(--white);
+    --gradient-border: var(--white);
+    --gradient-text-accent: linear-gradient(
+      to right,
+      var(--blue-dark),
+      var(--blue-light)
+    );
+
+    --color-bg-primary: var(--white);
+    --color-bg-secondary: oklch(85% 0 0);
+    --color-bg-surface: var(--white);
+    --color-bg-card: var(--white);
+    --color-bg-elevated: var(--white);
+    --color-bg-elevated-alt: var(--white);
+    --color-bg-overlay: var(--white);
+
+    --color-text-primary: var(--night);
+    --color-text-secondary: var(--night);
+    --color-text-secondary-dim: var(--night-70);
+    --color-text-muted: oklch(29.935% 0.02625 260.063 / 0.6);
+    --color-text-muted-dim: oklch(29.935% 0.02625 260.063 / 0.4);
+    --color-text-subtitle: oklch(29.935% 0.02625 260.063 / 0.7);
+    --color-accent-primary: var(--night);
+    --color-accent-secondary: var(--blue-light);
+    --color-accent-link: var(--blue-light);
+    --color-text-link: var(--blue-light);
+    --color-text-link-dim: var(--blue-light-70);
+    --color-text-link-hover: var(--blue-light-70);
+
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-3: none;
+    --shadow-4: none;
+    --shadow-5: none;
+
+    /* A4 typography scale */
+    --fs-1: 18pt;
+    --fs-2: 13pt;
+    --fs-3: 16pt;
+    --fs-4: 11pt;
+    --fs-5: 10.5pt;
+    --fs-6: 10pt;
+    --fs-7: 9.5pt;
+    --fs-8: 8pt;
+  }
+
+  *,
+  *::before,
+  *::after {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: var(--white);
+  }
+
+  p {
+    orphans: 2;
+    widows: 2;
+  }
+
+  /**
+   * Layout: full width, no on-screen chrome.
+   */
+  main {
+    display: block;
+    max-width: none;
+    margin: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .sidebar,
+  article {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: var(--white);
+  }
+
+  .sidebar {
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 10mm;
+  }
+
+  /* Always show the contact details */
+  .sidebar-info_more {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Print every section, not just the active tab */
+  article {
+    display: block;
+    animation: none;
+  }
+
+  article + article {
+    break-before: page;
+  }
+
+  /* Screen-only elements */
+  .navbar,
+  .info_more-btn,
+  .filter-list,
+  .filter-select-box,
+  article.contact,
+  .contact-form,
+  .mapbox,
+  .modal-container,
+  .overlay,
+  .icon-box,
+  .project-item-icon-box {
+    display: none;
+  }
+
+  ion-icon {
+    display: none;
+  }
+
+  /* Card styling flattened */
+  .service-item,
+  .content-card,
+  .blog-post-item > a {
+    background: var(--white);
+    border: 0.5pt solid var(--color-bg-secondary);
+    box-shadow: none;
+  }
+
+  /**
+   * Page break control.
+   */
+  .title-wrapper,
+  .timeline-item,
+  .timeline-subitem,
+  .service-item,
+  .project-item,
+  .contact-item,
+  .social-item,
+  .content-card {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  .article-title {
+    break-after: avoid;
+  }
+
+  /**
+   * Links: plain text on paper. Company names, locations and
+   * other lookup-style links lose their link styling entirely.
+   */
+  a,
+  .contact-info a,
+  .social-item a,
+  .timeline-item h4 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Profile links are icon-only on screen: spell out the full URLs */
+  .social-list {
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    padding-left: 0;
+  }
+
+  .social-item a {
+    font-size: 9.5pt;
+  }
+
+  .social-item a::after {
+    content: attr(href);
+  }
+
+  /* Projects: replace the hover icon overlay with spelled-out URLs */
+  .project-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+
+  .project-item {
+    display: block;
+    animation: none;
+  }
+
+  .project-img {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 4mm;
+  }
+
+  .project-img::before {
+    display: none;
+  }
+
+  .project-img img {
+    order: -1;
+    height: 45mm;
+    object-fit: cover;
+  }
+
+  .project-img > div {
+    position: static;
+    transform: none;
+    opacity: 1;
+    height: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    margin-top: 2mm;
+  }
+
+  .project-img > div > a {
+    width: auto;
+    font-size: 8.5pt;
+    color: inherit;
+  }
+
+  .project-img > div > a::after {
+    content: attr(href);
+  }
+
+  /* Scroll strips print in full */
+  .testimonials-list,
+  .clients-list {
+    overflow: visible;
+    flex-wrap: wrap;
+  }
 }
