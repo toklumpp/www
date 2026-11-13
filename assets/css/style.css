@@ -603,6 +603,11 @@ main {
 .social-item a:focus {
   color: var(--color-text-link);
 }
+
+/* The URL text is only shown in print; on screen the link is icon-only */
+.social-item a span {
+  display: none;
+}
 a {
   color: var(--color-text-link-dim);
 }
@@ -2469,19 +2474,36 @@ p a {
     text-decoration: none;
   }
 
-  /* Profile links are icon-only on screen: spell out the full URLs */
+  /* Profile links are icon-only on screen: in print, show the icon
+     right before a cleaned-up URL (protocol stripped) in a small chip
+     that matches the flattened card styling */
   .social-list {
     flex-wrap: wrap;
-    gap: 4px 18px;
+    gap: 2mm 3mm;
     padding-left: 0;
   }
 
   .social-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5mm;
+    padding: 1.5pt 5pt;
+    background: var(--white);
+    border: 0.5pt solid var(--color-bg-secondary);
+    border-radius: 3pt;
     font-size: 9.5pt;
+    color: var(--color-text-secondary);
   }
 
-  .social-item a::after {
-    content: attr(href);
+  /* Overrides the blanket `ion-icon { display: none }` above */
+  .social-item a ion-icon {
+    display: block;
+    font-size: 11pt;
+    color: var(--color-text-link);
+  }
+
+  .social-item a span {
+    display: inline;
   }
 
   /* Projects: replace the hover icon overlay with spelled-out URLs */
