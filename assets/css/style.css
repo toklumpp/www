@@ -2323,9 +2323,12 @@ p a {
     --fs-8: 8pt;
   }
 
-  *,
-  *::before,
-  *::after {
+  /* Only the decorative elements that rely on a background need forced
+     color printing; a universal `exact` would override the user's
+     "background graphics" print setting for every element. */
+  .article-title::after,
+  .timeline-item::before,
+  .timeline-item::after {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
@@ -2380,6 +2383,16 @@ p a {
     visibility: visible;
   }
 
+  .separator {
+    margin: 6mm 0;
+  }
+
+  /* The icon column is hidden, so let the text use the full width */
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
   /* Print every section, not just the active tab */
   article {
     display: block;
@@ -2393,14 +2406,10 @@ p a {
   /* Screen-only elements */
   .navbar,
   .info_more-btn,
-  .filter-list,
-  .filter-select-box,
   article.contact,
   .contact-form,
-  .mapbox,
-  .modal-container,
-  .overlay,
   .icon-box,
+  .service-icon-box,
   .project-item-icon-box {
     display: none;
   }
@@ -2410,12 +2419,20 @@ p a {
   }
 
   /* Card styling flattened */
-  .service-item,
-  .content-card,
-  .blog-post-item > a {
+  .service-item {
     background: var(--white);
     border: 0.5pt solid var(--color-bg-secondary);
     box-shadow: none;
+  }
+
+  /* Services: two columns like on desktop, left-aligned, no icon column */
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm 6mm;
+  }
+
+  .service-content-box {
+    text-align: left;
   }
 
   /**
@@ -2427,8 +2444,7 @@ p a {
   .service-item,
   .project-item,
   .contact-item,
-  .social-item,
-  .content-card {
+  .social-item {
     break-inside: avoid;
   }
 
@@ -2436,7 +2452,8 @@ p a {
   h3,
   h4,
   h5,
-  .article-title {
+  .article-title,
+  .title-wrapper {
     break-after: avoid;
   }
 
@@ -2514,12 +2531,5 @@ p a {
 
   .project-img > div > a::after {
     content: attr(href);
-  }
-
-  /* Scroll strips print in full */
-  .testimonials-list,
-  .clients-list {
-    overflow: visible;
-    flex-wrap: wrap;
   }
 }
